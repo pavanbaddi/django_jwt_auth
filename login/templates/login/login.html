@@ -1,0 +1,6 @@
+<form action="{% url 'login:verify' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" value="test1">
+    <input type="text" name="password" value="123456">
+    <input type="submit" value="submit">
+</form>

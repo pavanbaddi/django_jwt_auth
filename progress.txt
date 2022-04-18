@@ -1,0 +1,31 @@
+> Django app (not a REST API) that uses jwt to communicate with other non-python microservices within the project.
+> when non-python services are involved, we need other mechanisms like jwt.
+> My primary interest is in the jwt auth system itself, and not in any other functionality within the app. So naturally I'd like the auth system to cover all the cases like access token expiring (automatically refreshing the token in such a case), sending back a new refresh token, saving the refresh token etc.
+> 
+niranjanrao1
+Apr 18, 4:51 PM
+ReportSpam
+I've already built a Django app using the built-in class-based views like LoginView (using session auth).
+
+And now since I want to use an external microservice, I need to handle the auth aspects. Hence jwt.
+
+
+You can send me an order and I'll make the payment.
+
+
+Deliverables:
+1. A screen video of the system working when you're done
+2. Source code on GitHub
+3. Availability for some consulting/advisory for a week or so after your delivery in case I have some issues.
+
+
+> You can build a simple "Hello World" app that just prints those words on an html page. Nothing fancy.
+
+Plus the words "user is logged in" if the user is logged in, else a "user not logged in" if it's un-authenticated.
+
+https://auth0.com/blog/how-to-handle-jwt-in-python/
+
+Steps:
+1. Download jwt
+2. Create a Token
+3. Override django sessions to use this as token
