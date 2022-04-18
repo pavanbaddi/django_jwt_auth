@@ -24,6 +24,7 @@ Deliverables:
 Plus the words "user is logged in" if the user is logged in, else a "user not logged in" if it's un-authenticated.
 
 https://auth0.com/blog/how-to-handle-jwt-in-python/
+https://jwt.io/?_ga=2.160726526.2139210527.1650290214-1809333858.1650290214
 
 Steps:
 1. Download jwt

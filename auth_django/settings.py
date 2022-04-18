@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'auth_django.middlewares.UserMiddleware',
 ]
 
 ROOT_URLCONF = 'auth_django.urls'
@@ -76,7 +77,8 @@ JWT_SETTINGS = {
     "alg" : "HS256",
 }
 
-AUTHENTICATION_BACKENDS = ['auth_django.auth_backend.AuthUserBackend','django.contrib.auth.backends.ModelBackend']
+# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+AUTHENTICATION_BACKENDS = ['auth_django.auth_backend.AuthUserBackend']
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
