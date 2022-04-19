@@ -1,4 +1,6 @@
 {% if request.user.is_authenticated %}
+<p>ID : {{ user.pk }}</p>
+<p>Name : {{ user.first_name }}</p>
 <p>authenticated <a href="{% url 'login:logout' %}">Logout</a> </p>
 {% else %}
 <p>Not authenticated</p>
