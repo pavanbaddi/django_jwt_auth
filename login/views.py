@@ -10,6 +10,7 @@ import jwt
 import json
 import datetime
 from zoneinfo import ZoneInfo
+from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
@@ -86,3 +87,27 @@ def jwt_encode(payload):
     alg = settings.JWT_SETTINGS["alg"]
     token = jwt.encode(payload, key, algorithm=alg)   
     return token
+
+
+def websocket_start(request):
+
+    user= User.objects.first()
+
+    now = datetime.datetime.now(tz=ZoneInfo("Asia/Kolkata"))
+    # additional_time = datetime.timedelta(minutes=1)
+    additional_time = datetime.timedelta(hours=5, minutes=29)
+    expiry_datetime = now-additional_time
+    
+    response = render(request, 'login/websocket.html')
+    response.set_cookie(
+        key='token',
+        value=jwt_encode({
+            "id" : user.pk,
+            "username" : user.username,
+            "email" : user.email,
+            "expiry_datetime" : expiry_datetime.strftime("%a, %d %b %Y %H:%M:%S %Z")
+        }), 
+        expires=expiry_datetime.strftime("%a, %d %b %Y %H:%M:%S %Z"),
+        httponly=True)
+    
+    return response

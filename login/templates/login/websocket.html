@@ -1,0 +1,26 @@
+<html>
+<body>
+    <div id="root"></div>
+    <script>
+        // var host = 'ws://0.0.0.0:12345/websockets.php';
+        var host = 'ws://localhost:12345/test_django_js/websockets.php';
+        var socket = null;
+        function connect(){
+            socket = new WebSocket(host);
+            socket.onmessage = function(e) {
+                document.getElementById('root').innerHTML = e.data;
+            };
+        }
+
+        connect();
+
+        function restart(){
+            socket.close();
+
+            setTimeout(function(){
+                connect();
+            }, 2000)
+        }
+    </script>
+</body>
+</html>
